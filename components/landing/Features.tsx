@@ -31,7 +31,7 @@ export function Features() {
               ecosystem comes with everything you need to optimize physical
               recovery and progress.
             </p>
-            <HoverStackButton className="z-50  h-12 text-sm w-full text-nowrap font-semibold tracking-tight">
+            <HoverStackButton className="z-0  h-12 text-sm w-full text-nowrap font-semibold tracking-tight">
               Start tour
             </HoverStackButton>
           </div>

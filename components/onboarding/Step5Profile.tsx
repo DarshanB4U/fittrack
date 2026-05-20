@@ -90,7 +90,7 @@ export function Step5Profile({ onNext }: { onNext: () => void }) {
         <div className="flex flex-col items-center justify-center mb-8">
           <div className="relative group cursor-pointer">
             <div className={`w-28 h-28 rounded-full border-2 border-dashed flex items-center justify-center overflow-hidden transition-all ${
-              avatarPreview ? "border-primary" : "border-white/20 group-hover:border-primary/50 bg-background/50"
+              avatarPreview ? "border-primary" : "border-border group-hover:border-primary/50 bg-background"
             }`}>
               {avatarPreview ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -117,8 +117,8 @@ export function Step5Profile({ onNext }: { onNext: () => void }) {
             <AtSign className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <input
               {...register("username")}
-              className={`w-full h-12 pl-10 pr-4 rounded-xl bg-background/50 border transition-all focus:outline-none focus:ring-2 ${
-                errors.username ? "border-destructive focus:ring-destructive/20" : "border-white/10 focus:border-primary focus:ring-primary/20"
+              className={`w-full h-12 pl-10 pr-4 rounded-xl bg-background border transition-all focus:outline-none focus:ring-2 ${
+                errors.username ? "border-destructive focus:ring-destructive/20" : "border-border focus:border-primary focus:ring-primary/20"
               }`}
               placeholder="username"
             />
@@ -130,8 +130,8 @@ export function Step5Profile({ onNext }: { onNext: () => void }) {
           <label className="text-sm font-medium ml-1">Bio (Optional)</label>
           <textarea
             {...register("bio")}
-            className={`w-full h-24 p-4 rounded-xl bg-background/50 border transition-all focus:outline-none focus:ring-2 resize-none ${
-              errors.bio ? "border-destructive focus:ring-destructive/20" : "border-white/10 focus:border-primary focus:ring-primary/20"
+            className={`w-full h-24 p-4 rounded-xl bg-background border transition-all focus:outline-none focus:ring-2 resize-none ${
+              errors.bio ? "border-destructive focus:ring-destructive/20" : "border-border focus:border-primary focus:ring-primary/20"
             }`}
             placeholder="Tell the community a bit about yourself..."
           />

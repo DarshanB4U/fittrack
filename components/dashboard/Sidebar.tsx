@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Activity, LayoutDashboard, Calendar, Dumbbell, Apple, Settings, LogOut } from "lucide-react";
+import { Activity, LayoutDashboard, Calendar, Dumbbell, Apple, Settings, LogOut, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
+  { icon: Sparkles, label: "AI Coach", href: "/dashboard/ai-coach" },
   { icon: Calendar, label: "Schedule", href: "#" },
   { icon: Dumbbell, label: "Workouts", href: "#" },
   { icon: Apple, label: "Nutrition", href: "#" },
@@ -18,7 +19,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden md:flex flex-col w-64 h-full bg-card border-r border-white/5 relative z-20">
+    <aside className="hidden md:flex flex-col w-64 h-full bg-card border-r border-border relative z-20">
       <div className="p-6">
         <Link href="/" className="flex items-center gap-2">
           <div className="bg-primary/20 p-2 rounded-xl text-primary">

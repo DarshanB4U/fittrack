@@ -45,7 +45,7 @@ export function RecentWorkouts() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3 }}
-      className="glass rounded-3xl p-6 h-full border border-white/5"
+      className="glass rounded-3xl p-6 h-full"
     >
       <div className="flex justify-between items-center mb-6">
         <h3 className="text-lg font-bold">Recent Workouts</h3>
@@ -57,7 +57,7 @@ export function RecentWorkouts() {
           <motion.div 
             key={workout.id}
             whileHover={{ x: 4 }}
-            className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
+            className="flex items-center gap-4 p-3 rounded-xl hover:bg-muted/50 transition-colors cursor-pointer"
           >
             <div className={`w-12 h-12 rounded-xl ${workout.bgColor} flex items-center justify-center shrink-0`}>
               <workout.icon className={`w-6 h-6 ${workout.color}`} />
@@ -76,7 +76,7 @@ export function RecentWorkouts() {
         ))}
       </div>
       
-      <button className="w-full mt-6 py-3 rounded-xl border border-dashed border-white/20 text-muted-foreground hover:text-foreground hover:border-white/40 transition-colors text-sm font-medium flex items-center justify-center gap-2">
+      <button className="w-full mt-6 py-3 rounded-xl border border-dashed border-border text-muted-foreground hover:text-foreground hover:border-muted-foreground/50 transition-colors text-sm font-medium flex items-center justify-center gap-2">
         <Dumbbell className="w-4 h-4" />
         Log New Workout
       </button>

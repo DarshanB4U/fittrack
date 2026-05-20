@@ -55,7 +55,7 @@ export function StatsGrid() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: i * 0.1 }}
-          className="glass rounded-2xl p-5 border border-white/5"
+          className="glass rounded-2xl p-5"
         >
           <div className="flex justify-between items-start mb-4">
             <div className={`p-2.5 rounded-xl ${stat.bgColor}`}>

@@ -119,11 +119,10 @@ export default function FitnessSections() {
     flex items-center justify-center
     text-md font-bold
     transition-all duration-300
-    ${
-      activeSection === index
-        ? "bg-bg2 text-white border-white"
-        : "border-white/20 text-foreground/40"
-    }
+    ${activeSection === index
+                        ? "bg-bg2 text-white border-white"
+                        : "border-white/20 text-foreground/40"
+                      }
   `}
                   >
                     {section.id}
@@ -132,10 +131,9 @@ export default function FitnessSections() {
                   <span
                     className={`
                       text-xs tracking-wider  font-medium transition-colors duration-300
-                      ${
-                        activeSection === index
-                          ? "text-foreground"
-                          : "text-foreground/40"
+                      ${activeSection === index
+                        ? "text-foreground"
+                        : "text-foreground/40"
                       }
                     `}
                   >

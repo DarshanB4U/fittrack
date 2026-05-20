@@ -48,8 +48,8 @@ export function Step1Account({ onNext }: { onNext: () => void }) {
             <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <input
               {...register("name")}
-              className={`w-full h-12 pl-10 pr-4 rounded-xl bg-background/50 border transition-all focus:outline-none focus:ring-2 ${
-                errors.name ? "border-destructive focus:ring-destructive/20" : "border-white/10 focus:border-primary focus:ring-primary/20"
+              className={`w-full h-12 pl-10 pr-4 rounded-xl bg-background border transition-all focus:outline-none focus:ring-2 ${
+                errors.name ? "border-destructive focus:ring-destructive/20" : "border-border focus:border-primary focus:ring-primary/20"
               }`}
               placeholder="John Doe"
             />
@@ -63,8 +63,8 @@ export function Step1Account({ onNext }: { onNext: () => void }) {
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <input
               {...register("email")}
-              className={`w-full h-12 pl-10 pr-4 rounded-xl bg-background/50 border transition-all focus:outline-none focus:ring-2 ${
-                errors.email ? "border-destructive focus:ring-destructive/20" : "border-white/10 focus:border-primary focus:ring-primary/20"
+              className={`w-full h-12 pl-10 pr-4 rounded-xl bg-background border transition-all focus:outline-none focus:ring-2 ${
+                errors.email ? "border-destructive focus:ring-destructive/20" : "border-border focus:border-primary focus:ring-primary/20"
               }`}
               placeholder="john@example.com"
             />
@@ -81,8 +81,8 @@ export function Step1Account({ onNext }: { onNext: () => void }) {
               {...register("password")}
               onFocus={() => setPasswordFocus(true)}
               onBlur={() => setPasswordFocus(false)}
-              className={`w-full h-12 pl-10 pr-4 rounded-xl bg-background/50 border transition-all focus:outline-none focus:ring-2 ${
-                errors.password ? "border-destructive focus:ring-destructive/20" : "border-white/10 focus:border-primary focus:ring-primary/20"
+              className={`w-full h-12 pl-10 pr-4 rounded-xl bg-background border transition-all focus:outline-none focus:ring-2 ${
+                errors.password ? "border-destructive focus:ring-destructive/20" : "border-border focus:border-primary focus:ring-primary/20"
               }`}
               placeholder="••••••••"
             />
@@ -90,7 +90,7 @@ export function Step1Account({ onNext }: { onNext: () => void }) {
           {errors.password && <p className="text-destructive text-xs ml-1 mt-1">{errors.password.message}</p>}
           
           {(passwordFocus || passwordValue.length > 0) && (
-            <div className="mt-2 flex gap-1 h-1.5 rounded-full overflow-hidden bg-white/10">
+            <div className="mt-2 flex gap-1 h-1.5 rounded-full overflow-hidden bg-muted">
               <div 
                 className={`h-full transition-all duration-300 ${
                   passwordStrength < 40 ? "bg-destructive" : passwordStrength < 80 ? "bg-yellow-500" : "bg-primary"
@@ -106,9 +106,9 @@ export function Step1Account({ onNext }: { onNext: () => void }) {
         </Button>
 
         <div className="relative flex items-center py-4">
-          <div className="flex-grow border-t border-white/10"></div>
+          <div className="flex-grow border-t border-border"></div>
           <span className="flex-shrink-0 mx-4 text-muted-foreground text-xs uppercase">or</span>
-          <div className="flex-grow border-t border-white/10"></div>
+          <div className="flex-grow border-t border-border"></div>
         </div>
 
         <Button type="button" variant="outline" className="w-full h-12 text-base flex items-center justify-center gap-2">

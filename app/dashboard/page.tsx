@@ -34,10 +34,10 @@ export default function DashboardPage() {
             <input 
               type="text"
               placeholder="Search..."
-              className="w-full h-10 pl-9 pr-4 rounded-full bg-card border border-white/5 focus:outline-none focus:border-primary/50 text-sm"
+              className="w-full h-10 pl-9 pr-4 rounded-full bg-card border border-border focus:outline-none focus:border-primary/50 text-sm"
             />
           </div>
-          <button className="w-10 h-10 rounded-full bg-card border border-white/5 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-white/20 transition-colors shrink-0">
+          <button className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-border/80 transition-colors shrink-0">
             <Bell className="w-4 h-4" />
           </button>
         </div>

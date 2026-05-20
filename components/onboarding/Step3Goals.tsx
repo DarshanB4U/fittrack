@@ -50,11 +50,11 @@ export function Step3Goals({ onNext }: { onNext: () => void }) {
               onClick={() => toggleGoal(goal.id)}
               className={`relative cursor-pointer p-4 rounded-xl border transition-all duration-300 flex items-start gap-3 ${
                 isSelected 
-                  ? "bg-primary/10 border-primary shadow-[0_0_15px_rgba(124,255,107,0.2)]" 
-                  : "bg-background/50 border-white/10 hover:border-white/30"
+                  ? "bg-primary/10 border-primary shadow-md shadow-primary/20" 
+                  : "bg-background border-border hover:border-primary/50 hover:bg-muted"
               }`}
             >
-              <div className={`p-2 rounded-lg mt-1 transition-colors ${isSelected ? "bg-primary text-primary-foreground" : "bg-white/5 text-muted-foreground"}`}>
+              <div className={`p-2 rounded-lg mt-1 transition-colors ${isSelected ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
                 <goal.icon className="w-5 h-5" />
               </div>
               <div>

@@ -44,7 +44,7 @@ export function Step2Details({ onNext }: { onNext: () => void }) {
                 className={`flex-1 py-3 px-4 rounded-xl border transition-all text-sm font-medium ${
                   localGender === g 
                     ? "bg-primary/20 border-primary text-primary glow" 
-                    : "bg-background/50 border-white/10 text-muted-foreground hover:bg-white/5"
+                    : "bg-background border-border text-muted-foreground hover:bg-muted"
                 }`}
               >
                 {g}
@@ -59,7 +59,7 @@ export function Step2Details({ onNext }: { onNext: () => void }) {
             type="date"
             value={localDob}
             onChange={(e) => setLocalDob(e.target.value)}
-            className="w-full h-12 px-4 rounded-xl bg-background/50 border border-white/10 transition-all focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 text-foreground"
+            className="w-full h-12 px-4 rounded-xl bg-background border border-border transition-all focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 text-foreground"
           />
         </div>
 
@@ -74,7 +74,7 @@ export function Step2Details({ onNext }: { onNext: () => void }) {
             max="220"
             value={localHeight}
             onChange={(e) => setLocalHeight(parseInt(e.target.value))}
-            className="w-full accent-primary h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+            className="w-full accent-primary h-2 bg-muted rounded-lg appearance-none cursor-pointer"
           />
         </div>
 
@@ -89,7 +89,7 @@ export function Step2Details({ onNext }: { onNext: () => void }) {
             max="150"
             value={localWeight}
             onChange={(e) => setLocalWeight(parseInt(e.target.value))}
-            className="w-full accent-primary h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+            className="w-full accent-primary h-2 bg-muted rounded-lg appearance-none cursor-pointer"
           />
         </div>
 

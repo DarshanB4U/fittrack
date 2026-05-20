@@ -44,8 +44,8 @@ export function Step4Activity({ onNext }: { onNext: () => void }) {
             onClick={() => setSelected(level.id)}
             className={`cursor-pointer p-4 rounded-xl border transition-all flex items-center justify-between ${
               selected === level.id 
-                ? "bg-primary/10 border-primary glow" 
-                : "bg-background/50 border-white/10 hover:bg-white/5 hover:border-white/20"
+                ? "bg-primary/10 border-primary shadow-sm shadow-primary/20" 
+                : "bg-background border-border hover:bg-muted hover:border-primary/50"
             }`}
           >
             <div>
@@ -55,7 +55,7 @@ export function Step4Activity({ onNext }: { onNext: () => void }) {
               <p className="text-sm text-muted-foreground mt-0.5">{level.desc}</p>
             </div>
             <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
-              selected === level.id ? "border-primary" : "border-white/20"
+              selected === level.id ? "border-primary" : "border-border"
             }`}>
               {selected === level.id && <div className="w-3 h-3 bg-primary rounded-full" />}
             </div>
