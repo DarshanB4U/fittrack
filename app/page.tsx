@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/landing/Navbar";
+// import { Navbar } from "@/components/landing/Navbar";
 import { Hero } from "@/components/landing/Hero";
 import { SocialProof } from "@/components/landing/SocialProof";
 import { Features } from "@/components/landing/Features";
@@ -8,6 +8,8 @@ import { Pricing } from "@/components/landing/Pricing";
 import { CTA } from "@/components/landing/CTA";
 import { Footer } from "@/components/landing/Footer";
 import Ribbon from "@/components/landing/Ribbon";
+import Navbar from "@/components/landing/Navbar";
+import FitnessSections from "@/components/landing/scrol-magic";
 
 export default function Home() {
   return (
@@ -15,9 +17,10 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Ribbon ></Ribbon>
+        <Ribbon></Ribbon>
         <SocialProof />
         <Features />
+        <FitnessSections></FitnessSections>
         <HowItWorks />
         <Testimonials />
         <Pricing />

@@ -2,16 +2,19 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Button3D } from "../ui/button3d";
+
+import { HoverStackButton } from "../ui/hover-stack-button";
 
 export function Features() {
   return (
-    <section id="features" className="py-24  w-full flex   bg-[#FAF8F5]">
+    <section id="features" className="py-24  w-full flex   bg-background">
       <div
         className="container mx-auto
        px-6 "
       >
         {/* Tour Box */}
-        <div className="bg-[#f6f1e5] b   p-8 md:p-16 flex flex-col md:flex-row items-end gap-12 max-w-full h-full mx-auto ">
+        <div className="bg-accent   p-8 md:p-16 flex flex-col md:flex-row items-end gap-12 max-w-full h-full mx-auto ">
           {/* Left Panel */}
           <div
             className="flex-1 max-w-full
@@ -28,9 +31,9 @@ export function Features() {
               ecosystem comes with everything you need to optimize physical
               recovery and progress.
             </p>
-            <Button className="bg-primary hover:opacity-90 px-8 h-12 text-sm font-semibold">
-              Start my tour
-            </Button>
+            <HoverStackButton className="z-50  h-12 text-sm w-full text-nowrap font-semibold tracking-tight">
+              Start tour
+            </HoverStackButton>
           </div>
 
           {/* Right Panel (Zendesk-Style Mockup Illustration) */}

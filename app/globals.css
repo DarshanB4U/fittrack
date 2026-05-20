@@ -32,15 +32,15 @@
 }
 
 :root {
-  --background: #EBEBE5; /* Zendesk Warm Off-White */
-  --foreground: #17140c; /* Deep Charcoal */
-  --card: #C99886;
+  --background: #F8F5EE;
+  --foreground: #17140c;
+  --card: #FFFFFF;
   --card-foreground: #1E1A16;
   --popover: #FFFFFF;
   --popover-foreground: #1E1A16;
-  --primary: #9A618C; /* Zendesk Purple */
+  --primary: #9A618C;
   --primary-foreground: #FFFFFF;
-  --secondary: #CEFA5A; /* Zendesk Lime */
+  --secondary: #CEFA5A;
   --secondary-foreground: #1E1A16;
   --muted: #F1ECE3;
   --muted-foreground: #605B54;
@@ -50,8 +50,32 @@
   --destructive-foreground: #F9FAFB;
   --border: #E8E2D5;
   --input: #E8E2D5;
-  --ring: #793E9F;
-  --radius: 1.5rem; /* More rounded like Zendesk */
+  --ring: #9A618C;
+  --radius: 1.5rem;
+}
+
+/* Dark mode — same warm palette, inverted. Purple + Lime accents stay identical. */
+.dark {
+  --background: #17120F;
+  --foreground: #EFEBE1;
+  --card: #231C17;
+  --card-foreground: #EFEBE1;
+  --popover: #231C17;
+  --popover-foreground: #EFEBE1;
+  --primary: #B87AAD;
+  --primary-foreground: #17120F;
+  --secondary:  #233830;
+  --secondary-foreground: #17120F;
+  --muted: #2E2420;
+  --muted-foreground: #A8A39D;
+  --accent: #2E2420;
+  --accent-foreground: #EFEBE1;
+  --destructive: #EF4444;
+  --destructive-foreground: #F9FAFB;
+  --border: #3A2E28;
+  --input: #3A2E28;
+  --ring: #B87AAD;
+  --radius: 1.5rem;
 }
 
 @layer base {

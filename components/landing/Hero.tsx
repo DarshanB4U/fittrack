@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { HoverStackButton } from "../ui/hover-stack-button";
 
 export function Hero() {
   return (
@@ -19,11 +20,11 @@ export function Hero() {
               Build lasting habits with our complete wellness solution.
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-12">
+            <div className="flex flex-wrap items-center gap-4 mb-12">
               <Link href="/onboarding">
-                <Button size="lg" className="px-8 bg-primary hover:opacity-90">
+                <HoverStackButton className="bg hover:opacity-90">
                   Start your free trial
-                </Button>
+                </HoverStackButton>
               </Link>
               <Button
                 size="lg"
@@ -45,70 +46,18 @@ export function Hero() {
           <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
             <div className="relative w-full max-w-lg">
               {/* Zendesk Screenshot Style Image Box */}
-              <div className="relative bg-accent  overflow-hidden  shadow-lg border border-border">
-                {/* Simulated athlete illustration using CSS/SVG container */}
-                <div className=" items-center h-96  bgjustify-center ">
-                  {/* Decorative curved minimal avatar illustration */}
+              {/* Simulated athlete illustration using CSS/SVG container */}
+              <div className=" items-center h-96  bgjustify-center ">
+                {/* Decorative curved minimal avatar illustration */}
 
-                  <img
-                    className="w-full h-full object-cover"
-                    src={"./jonathan.jpg"}
-                    // src={""}
-                  ></img>
-                </div>
-
-                {/* Simulated Floating Chat Panel */}
-                {/* <div className="absolute top-2 right-6 bg-white rounded-2xl p-4 shadow-xl  border-2 border-[#0d6254] max-w-[220px]">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-3 h-3 rounded-full bg-primary" />
-                    <p className="text-xs font-bold text-foreground">
-                      Active Recovery
-                    </p>
-                  </div>
-                  <p className="text-[11px] text-muted-foreground leading-normal font-medium">
-                    "Your HRV indicates ready status. Push harder today."
-                  </p>
-                </div> */}
+                <img
+                  className="w-full bg-teal- h-full object-cover"
+                  src={"./hero.svg"}
+                ></img>
               </div>
 
               {/* Stats Overlay Gauge Box */}
-              <div className="absolute -left-48 bg-primary  bottom-6 flex items-end rounded-4xl w-1.5 h-18  ">
-                {/* Arc */}
-                <div className="relative w-90 h-90 shrink-0">
-                  <svg viewBox="0 0 200 200" className="w-full h-full">
-                    {/* Background */}
-                    <path
-                      d="M40 140 A60 60 0 1 1 160 140"
-                      fill="none"
-                      stroke="#CFEFE8"
-                      strokeWidth="22"
-                      strokeLinecap="round"
-                    />
-
-                    {/* Progress */}
-                    <path
-                      d="M40 140 A60 60 0 1 1 160 140"
-                      fill="none"
-                      stroke="#006B5B"
-                      strokeWidth="24"
-                      strokeLinecap="round"
-                      strokeDasharray="188"
-                      strokeDashoffset="112"
-                    />
-                  </svg>
-                </div>
-
-                {/* Text */}
-                <div className="-ml-2  relative -left-82 top-6  mb-1 ">
-                  <h3 className="  text-[72px] leading-[0.85] font-black font-sans tracking-tight text-black">
-                    40<span className="text-3xl align-top">%</span>
-                  </h3>
-
-                  <p className="text-[15px] leading-tight font-semibold text-black/70 max-w-[160px]">
-                    cost savings per ticket
-                  </p>
-                </div>
-              </div>
+              
               {/* Caption Line */}
               <p className="text-center text-xs text-muted-foreground font-semibold mt-14">
                 Know what your body needs before you do.

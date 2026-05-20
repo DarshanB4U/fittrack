@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Activity, LayoutDashboard, Calendar, Dumbbell, Apple, Settings, LogOut } from "lucide-react";
 import { motion } from "framer-motion";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
@@ -60,7 +61,11 @@ export function Sidebar() {
         })}
       </div>
 
-      <div className="p-4 mt-auto">
+      <div className="p-4 mt-auto flex flex-col gap-2">
+        <div className="flex items-center gap-3 px-4 py-3 rounded-xl">
+          <span className="text-sm font-medium text-muted-foreground">Dark mode</span>
+          <ThemeToggle />
+        </div>
         <Link 
           href="/"
           className="flex items-center gap-3 px-4 py-3 rounded-xl text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"

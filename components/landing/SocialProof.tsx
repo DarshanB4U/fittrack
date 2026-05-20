@@ -23,7 +23,7 @@ const announcements = [
 
 export function SocialProof() {
   return (
-    <section className="bg-linear-to-b from-[#ddf995] to-[#f8f5ee] py-20    text-foreground">
+    <section className="bg-linear-to-b from-secondary  to-background py-20    text-foreground">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-xs font-extrabold uppercase tracking-widest text-foreground/70">
@@ -66,7 +66,6 @@ export function SocialProof() {
               </Link>
             </motion.div>
           ))}
-          
         </div>
       </div>
     </section>
