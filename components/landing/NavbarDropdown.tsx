@@ -75,8 +75,9 @@ export default function NavbarDropdown({
       onMouseLeave={() => setActiveMenu(null)}
       className="
         absolute left-0 right-0 top-full
-        bg-black/95 backdrop-blur-2xl
+        bg-bg2
         border-t border-white/10
+        
       "
     >
       <div className="max-w-6xl mx-auto px-6 py-10">
@@ -85,8 +86,8 @@ export default function NavbarDropdown({
             <div key={section.title}>
               <h4
                 className="
-                  text-xs uppercase tracking-widest
-                  text-white/40 mb-5
+                  text-sm uppercase tracking-widest
+                  text-background/90 mb-5
                 "
               >
                 {section.title}
@@ -97,7 +98,7 @@ export default function NavbarDropdown({
                   <div
                     key={item}
                     className="
-                      text-white/80
+                      text-background/80
                       hover:text-white
                       text-lg font-medium
                       transition-colors

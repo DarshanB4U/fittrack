@@ -26,13 +26,14 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-
+  --color-bg2: var(--bg2);
   --font-sans: var(--font-inter);
   --font-heading: var(--font-playfair-display);
 }
 
 :root {
   --background: #F8F5EE;
+  --bg2:#233830;
   --foreground: #17140c;
   --card: #FFFFFF;
   --card-foreground: #1E1A16;
@@ -46,7 +47,7 @@
   --muted-foreground: #605B54;
   --accent: #EFEBE1;
   --accent-foreground: #1E1A16;
-  --destructive: #EF4444;
+  --destructive: #752cf0;
   --destructive-foreground: #F9FAFB;
   --border: #E8E2D5;
   --input: #E8E2D5;
@@ -57,6 +58,7 @@
 /* Dark mode — same warm palette, inverted. Purple + Lime accents stay identical. */
 .dark {
   --background: #17120F;
+  --bg2:#C99886;
   --foreground: #EFEBE1;
   --card: #231C17;
   --card-foreground: #EFEBE1;
@@ -70,7 +72,7 @@
   --muted-foreground: #A8A39D;
   --accent: #2E2420;
   --accent-foreground: #EFEBE1;
-  --destructive: #EF4444;
+  --destructive: #752cf0;
   --destructive-foreground: #F9FAFB;
   --border: #3A2E28;
   --input: #3A2E28;

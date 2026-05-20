@@ -36,14 +36,12 @@ export function Features() {
             </HoverStackButton>
           </div>
 
-          {/* Right Panel (Zendesk-Style Mockup Illustration) */}
-          <div className="flex-1 w-full max-w-md relative flex justify-center">
-            {/* Zendesk style minimal illustration */}
-          </div>
-          <div className="h-full w-full ">
+          {/* Right Panel (Tour Mockup Illustration) */}
+          <div className="flex-1 w-full max-w-md relative flex justify-center h-full">
             <img
-              className="  md:visible border-2  shadow-2xl "
+              className="w-full h-auto border-2 shadow-2xl rounded-2xl object-cover"
               src="./image.png"
+              alt="Take a tour"
             />
           </div>
         </div>

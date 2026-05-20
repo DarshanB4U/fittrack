@@ -48,19 +48,19 @@ export function SocialProof() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white p-8 border border-black/10 flex flex-col justify-between min-h-[220px]"
+              className="bg-card-foreground p-8 border border-black/10 flex flex-col justify-between min-h-[220px]"
             >
               <div>
-                <h3 className="text-xl font-heading font-medium mb-3 text-foreground">
+                <h3 className="text-xl font-heading font-medium mb-3 text-background">
                   {item.title}
                 </h3>
-                <p className="text-sm text-foreground/70 leading-relaxed mb-6 font-medium">
+                <p className="text-sm text-background/70 leading-relaxed mb-6 font-medium">
                   {item.desc}
                 </p>
               </div>
               <Link
                 href="#"
-                className="text-sm font-bold underline hover:no-underline text-foreground"
+                className="text-sm font-bold underline hover:no-underline text-background"
               >
                 {item.link}
               </Link>

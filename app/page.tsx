@@ -19,8 +19,8 @@ export default function Home() {
         <Hero />
         <Ribbon></Ribbon>
         <SocialProof />
-        <Features />
         <FitnessSections></FitnessSections>
+        <Features />
         <HowItWorks />
         <Testimonials />
         <Pricing />

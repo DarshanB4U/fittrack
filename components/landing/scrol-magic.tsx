@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const sections = [
   {
-    id: "01",
+    id: "1",
     title: "WORKOUT TRACKING",
     heading: "Track every workout with precision",
     description:
@@ -21,7 +21,7 @@ const sections = [
   },
 
   {
-    id: "02",
+    id: "2",
     title: "AI FITNESS COACH",
     heading: "Personalized AI fitness coaching",
     description:
@@ -37,7 +37,7 @@ const sections = [
   },
 
   {
-    id: "03",
+    id: "3",
     title: "NUTRITION",
     heading: "Optimize nutrition and recovery",
     description:
@@ -53,7 +53,7 @@ const sections = [
   },
 
   {
-    id: "04",
+    id: "4",
     title: "PROGRESS ANALYTICS",
     heading: "Visualize long-term body progress",
     description:
@@ -100,16 +100,16 @@ export default function FitnessSections() {
   }, []);
 
   return (
-    <section className="relative bg-foreground  text-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-12 gap-10">
+    <section className="relative bg-background   text-foreground">
+      <div className=" w-full mx-0 sm:grid grid-cols-12  gap-8">
         {/* LEFT FIXED NAV */}
         <div className="col-span-2  hidden  lg:block">
-          <div className="sticky top-24 h-screen pt-24">
-            <div className="flex flex-col gap-6">
+          <div className="sticky top-20 h-fit  py-1">
+            <div className="flex flex-col  gap-3">
               {sections.map((section, index) => (
                 <button
                   key={section.id}
-                  className="flex items-center gap-4 text-left group"
+                  className="flex items-center gap-2 text-left group"
                 >
                   <div
                     className={`
@@ -117,12 +117,12 @@ export default function FitnessSections() {
     
     
     flex items-center justify-center
-    text-sm font-bold
+    text-md font-bold
     transition-all duration-300
     ${
       activeSection === index
-        ? "bg-white text-black border-white"
-        : "border-white/20 text-white/40"
+        ? "bg-bg2 text-white border-white"
+        : "border-white/20 text-foreground/40"
     }
   `}
                   >
@@ -131,9 +131,11 @@ export default function FitnessSections() {
 
                   <span
                     className={`
-                      text-xs tracking-wider font-medium transition-colors duration-300
+                      text-xs tracking-wider  font-medium transition-colors duration-300
                       ${
-                        activeSection === index ? "text-white" : "text-white/40"
+                        activeSection === index
+                          ? "text-foreground"
+                          : "text-foreground/40"
                       }
                     `}
                   >
@@ -142,18 +144,30 @@ export default function FitnessSections() {
                 </button>
               ))}
             </div>
+            {/* dots */}
+            <div
+              className="
+    mt-8
+    h-150
+    w-full
+    opacity-40
+    bg-[radial-gradient(currentColor_1px,transparent_1px)]
+    bg-size-[10px_10px]
+    text-foreground
+  "
+            />
           </div>
         </div>
 
         {/* MIDDLE CONTENT */}
-        <div className="col-span-12 lg:col-span-5">
+        <div className="col-span-12 lg:col-span-4">
           {sections.map((section, index) => (
             <div
               key={section.id}
               ref={(el) => {
                 sectionRefs.current[index] = el;
               }}
-              className="min-h-screen flex items-start pt-40"
+              className="min-h-screen flex items-center"
             >
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -161,7 +175,7 @@ export default function FitnessSections() {
                 transition={{ duration: 0.5 }}
                 className="max-w-xl"
               >
-                <p className="text-sm tracking-[0.2em] text-white/40 mb-5">
+                <p className="text-sm tracking-[0.2em] text-foreground/40 mb-5">
                   {section.title}
                 </p>
 
@@ -169,7 +183,7 @@ export default function FitnessSections() {
                   {section.heading}
                 </h2>
 
-                <p className="text-lg leading-relaxed text-white/70 mb-8">
+                <p className="text-lg leading-relaxed text-foreground/70 mb-8">
                   {section.description}
                 </p>
 
@@ -177,7 +191,7 @@ export default function FitnessSections() {
                   {section.bullets.map((bullet) => (
                     <li
                       key={bullet}
-                      className="flex items-center gap-3 text-white/90"
+                      className="flex items-center gap-3 text-foreground/90"
                     >
                       <div className="w-1.5 h-1.5 rounded-full bg-white" />
                       {bullet}
@@ -203,21 +217,22 @@ export default function FitnessSections() {
         </div>
 
         {/* RIGHT FIXED IMAGE */}
-        <div className="hidden lg:block lg:col-span-5">
-          <div className="sticky top-24 h-screen flex items-center">
+        <div className="hidden lg:block lg:col-span-6 h-full">
+          <div className="sticky top-20 h-screen flex items-center">
             <motion.div
               key={activeSection}
-              initial={{ opacity: 0, scale: 0.96 }}
+              initial={{ opacity: 0, scale: 1 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               className="
                 relative
                 w-full
+                h-full
                 aspect-[0.9]
                 overflow-hidden
-                rounded-[32px]
-                border border-white/10
+
                 bg-neutral-900
+                
               "
             >
               <img
@@ -227,27 +242,7 @@ export default function FitnessSections() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-
-              {/* Floating Card */}
-              <div
-                className="
-                  absolute bottom-6 left-6 right-6
-                  rounded-2xl
-                  border border-white/10
-                  bg-black/70
-                  backdrop-blur-xl
-                  p-6
-                "
-              >
-                <p className="text-sm text-white/50 mb-2">
-                  {sections[activeSection].title}
-                </p>
-
-                <h3 className="text-2xl font-semibold">
-                  {sections[activeSection].heading}
-                </h3>
-              </div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
             </motion.div>
           </div>
         </div>

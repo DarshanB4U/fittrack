@@ -6,10 +6,9 @@ import { Play } from "lucide-react";
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-[#FAF8F5]">
+    <section className="py-24 bg-bg2">
       <div className="container mx-auto px-6 lg:px-12 max-w-5xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          
           {/* Left Panel: Mock Video Player */}
           <div className="relative aspect-video rounded-3xl overflow-hidden bg-accent border border-black/5 shadow-lg group cursor-pointer">
             {/* Visual aesthetic gradient simulating play layout */}
@@ -26,20 +25,24 @@ export function Testimonials() {
 
           {/* Right Panel: Content */}
           <div className="max-w-md">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-primary font-sans">
+            <span className="text-sm px-1 font-extrabold uppercase tracking-widest dark:text-black text-primary font-sans">
               PERSONALIZED COACHING
             </span>
-            <h2 className="text-4xl md:text-5xl font-heading font-medium mt-4 mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-heading  text-background  font-medium mt-4 mb-6 leading-tight">
               Take your progress personally
             </h2>
-            <p className="text-base text-foreground/75 leading-relaxed mb-8 font-medium">
-              For long-term health, every habit should feel tailor-made for you. FitTrack offers the personalization features and dynamic adjustment protocols you need to keep moving forward.
+            <p className="text-base text-background/75 leading-relaxed mb-8 font-medium">
+              For long-term health, every habit should feel tailor-made for you.
+              FitTrack offers the personalization features and dynamic
+              adjustment protocols you need to keep moving forward.
             </p>
-            <Button variant="outline" className="px-6 h-12 text-sm font-semibold border-foreground hover:bg-foreground/5">
+            <Button
+              variant="secondary"
+              className="px-6 h-12 text-sm font-semibold  hover:text-white border-foreground hover:bg-foreground/5 text-secondery  hover:bg-destructive"
+            >
               Explore all features
             </Button>
           </div>
-
         </div>
       </div>
     </section>

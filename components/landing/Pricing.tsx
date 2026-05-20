@@ -52,7 +52,7 @@ const plans = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-24 bg-[#FAF8F5] border-t border-b border-black/5">
+    <section id="pricing" className="py-24 bg-background border-t border-b border-black/5">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-extrabold uppercase tracking-widest text-primary font-sans block mb-4">
@@ -74,10 +74,10 @@ export function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`bg-white rounded-3xl p-8 flex flex-col justify-between border relative transition-all duration-300 ${
+              className={`bg-background rounded-3xl p-8 flex flex-col justify-between border relative transition-all duration-300 ${
                 plan.popular 
                   ? "border-primary shadow-lg ring-1 ring-primary" 
-                  : "border-black/10 hover:border-black/20"
+                  : "border-forground/10 hover:border-black/20"
               }`}
             >
               {plan.popular && (

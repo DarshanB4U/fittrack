@@ -273,7 +273,7 @@ import { Menu, X } from "lucide-react";
 import NavbarDropdown from "./NavbarDropdown";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { HoverStackButton } from "../ui/hover-stack-button";
-import Logo from "../ui/fit-track-log";
+import Logo from "../ui/fit-track-logo";
 
 const menuItems = [
   "Products",
@@ -320,7 +320,7 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <nav
             className="hidden lg:flex items-center gap-8"
-            onMouseLeave={() => setActiveMenu(null)}
+            onMouseLeave={() =>{ setActiveMenu(null)}}
           >
             {menuItems.map((item) => (
               <div

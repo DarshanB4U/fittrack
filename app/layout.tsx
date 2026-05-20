@@ -30,7 +30,7 @@ export default function RootLayout({
       className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col selection:bg-primary/20">
+      <body className="min-h-full flex flex-col selection:bg-primary/20 overflow-x-hidden">
         <ThemeProvider
           attribute="class"
           defaultTheme="light" // Set default theme to light to showcase the Zendesk style

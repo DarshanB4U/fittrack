@@ -2,15 +2,17 @@ import Link from "next/link";
 
 function Logo() {
   return (
-    <div>
+    <div className="flex justify-center items-start">
       <Link
         href="/"
         className="
               text-foreground
               text-2xl
-              font-black
               tracking-tight
               uppercase
+
+              font-bold
+              
             "
       >
         fittrack

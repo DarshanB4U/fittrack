@@ -20,7 +20,7 @@ export function Hero() {
               Build lasting habits with our complete wellness solution.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 mb-12">
+            <div className="flex justify-center sm:justify-start flex-wrap items-center gap-4 mb-12">
               <Link href="/onboarding">
                 <HoverStackButton className="bg hover:opacity-90">
                   Start your free trial
