@@ -3,7 +3,19 @@
 import { useStore } from "@/store/useStore";
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Sparkles, User, Bot, Loader2, Compass, ArrowRight, Activity, Dumbbell, Apple, Heart } from "lucide-react";
+import {
+  Send,
+  Sparkles,
+  User,
+  Bot,
+  Loader2,
+  Compass,
+  ArrowRight,
+  Activity,
+  Dumbbell,
+  Apple,
+  Heart,
+} from "lucide-react";
 
 interface Message {
   role: "user" | "assistant";
@@ -11,9 +23,24 @@ interface Message {
 }
 
 const SUGGESTIONS = [
-  { text: "Design a 5-day workout plan", icon: Dumbbell, color: "text-blue-500", bgColor: "bg-blue-500/10" },
-  { text: "Create a custom high-protein diet plan", icon: Apple, color: "text-green-500", bgColor: "bg-green-500/10" },
-  { text: "Best strategies to stay consistent", icon: Heart, color: "text-rose-500", bgColor: "bg-rose-500/10" },
+  {
+    text: "Design a 5-day workout plan",
+    icon: Dumbbell,
+    color: "text-blue-500",
+    bgColor: "bg-blue-500/10",
+  },
+  {
+    text: "Create a custom high-protein diet plan",
+    icon: Apple,
+    color: "text-green-500",
+    bgColor: "bg-green-500/10",
+  },
+  {
+    text: "Best strategies to stay consistent",
+    icon: Heart,
+    color: "text-rose-500",
+    bgColor: "bg-rose-500/10",
+  },
 ];
 
 export default function AICoachPage() {
@@ -22,18 +49,20 @@ export default function AICoachPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
     // Initial welcome message
     const timer = setTimeout(() => {
-      const userName = store.name ? store.name.split(" ")[0] : store.username || "Athlete";
+      const userName = store.name
+        ? store.name.split(" ")[0]
+        : store.username || "Athlete";
       setMessages([
         {
           role: "assistant",
-          content: `Hi **${userName}**! 👋 \n\nI'm your **FitTrack AI Coach**. I've synchronized your onboarding profile details and am ready to support your health journey!\n\nI see you're focusing on **${store.goals.length > 0 ? store.goals.map(g => g.replace('_', ' ')).join(', ') : 'general fitness'}**.\n\nHow can I help you today? Feel free to ask about custom workout splits, nutritional advice, or recovery planning!`,
+          content: `Hi **${userName}**! 👋 \n\nI'm your **FitTrack AI Coach**. I've synchronized your onboarding profile details and am ready to support your health journey!\n\nI see you're focusing on **${store.goals.length > 0 ? store.goals.map((g) => g.replace("_", " ")).join(", ") : "general fitness"}**.\n\nHow can I help you today? Feel free to ask about custom workout splits, nutritional advice, or recovery planning!`,
         },
       ]);
     }, 400);
@@ -83,14 +112,18 @@ export default function AICoachPage() {
       if (!res.ok) throw new Error("API call failed");
 
       const data = await res.json();
-      setMessages((prev) => [...prev, { role: "assistant", content: data.text }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: data.text },
+      ]);
     } catch (err) {
       console.error(err);
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          content: "Oops! I encountered an error communicating with my system. Please try again in a moment.",
+          content:
+            "Oops! I encountered an error communicating with my system. Please try again in a moment.",
         },
       ]);
     } finally {
@@ -115,7 +148,7 @@ export default function AICoachPage() {
         parts.push(
           <strong key={match.index} className="font-bold text-primary">
             {match[1]}
-          </strong>
+          </strong>,
         );
         lastIndex = boldRegex.lastIndex;
       }
@@ -127,28 +160,45 @@ export default function AICoachPage() {
       const parsedLine = parts.length > 0 ? parts : element;
 
       if (line.startsWith("### ")) {
-        return <h4 key={i} className="text-lg font-bold mt-4 mb-2 text-foreground">{line.replace("### ", "")}</h4>;
+        return (
+          <h4 key={i} className="text-lg font-bold mt-4 mb-2 text-foreground">
+            {line.replace("### ", "")}
+          </h4>
+        );
       }
       if (line.startsWith("## ")) {
-        return <h3 key={i} className="text-xl font-bold mt-5 mb-3 text-foreground">{line.replace("## ", "")}</h3>;
+        return (
+          <h3 key={i} className="text-xl font-bold mt-5 mb-3 text-foreground">
+            {line.replace("## ", "")}
+          </h3>
+        );
       }
       if (line.startsWith("- ") || line.startsWith("* ")) {
         return (
-          <li key={i} className="ml-4 list-disc text-sm sm:text-base mb-1 text-foreground/90">
+          <li
+            key={i}
+            className="ml-4 list-disc text-sm sm:text-base mb-1 text-foreground/90"
+          >
             {parsedLine === element ? line.substring(2) : parsedLine}
           </li>
         );
       }
       if (/^\d+\.\s/.test(line)) {
         return (
-          <li key={i} className="ml-4 list-decimal text-sm sm:text-base mb-1 text-foreground/90">
+          <li
+            key={i}
+            className="ml-4 list-decimal text-sm sm:text-base mb-1 text-foreground/90"
+          >
             {parsedLine === element ? line.replace(/^\d+\.\s/, "") : parsedLine}
           </li>
         );
       }
-      
+
       return (
-        <p key={i} className="text-sm sm:text-base leading-relaxed mb-2 text-foreground/90 min-h-[1rem]">
+        <p
+          key={i}
+          className="text-sm sm:text-base leading-relaxed mb-2 text-foreground/90 min-h-[1rem]"
+        >
           {parsedLine}
         </p>
       );
@@ -156,7 +206,7 @@ export default function AICoachPage() {
   };
 
   return (
-    <main className="p-4 sm:p-8 w-full max-w-7xl mx-auto h-[calc(100vh-2rem)] flex flex-col md:flex-row gap-6">
+    <main className="p-4 sm:p-8 w-full max-w-7xl mx-auto sm:h-[calc(100vh-2rem)] h-full flex flex-col md:flex-row gap-6">
       {/* Left Column: Chat Container */}
       <div className="flex-1 flex flex-col h-full overflow-hidden glass rounded-3xl border border-border">
         {/* Chat Header */}
@@ -170,7 +220,9 @@ export default function AICoachPage() {
               <h1 className="text-lg font-bold text-foreground flex items-center gap-1.5">
                 FitTrack AI Coach
               </h1>
-              <p className="text-xs text-muted-foreground">Expert Wellness Consultant</p>
+              <p className="text-xs text-muted-foreground">
+                Expert Wellness Consultant
+              </p>
             </div>
           </div>
 
@@ -181,7 +233,7 @@ export default function AICoachPage() {
         </div>
 
         {/* Messages Space */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 scrollbar-thin">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6  scrollbar-thin">
           <AnimatePresence initial={false}>
             {messages.map((message, index) => (
               <motion.div
@@ -208,7 +260,9 @@ export default function AICoachPage() {
                 >
                   <div className="space-y-1">
                     {message.role === "user" ? (
-                      <p className="text-sm sm:text-base whitespace-pre-wrap">{message.content}</p>
+                      <p className="text-sm sm:text-base whitespace-pre-wrap">
+                        {message.content}
+                      </p>
                     ) : (
                       renderMessageContent(message.content)
                     )}
@@ -235,7 +289,9 @@ export default function AICoachPage() {
               </div>
               <div className="bg-card border border-border rounded-2xl rounded-tl-none p-4 flex items-center gap-2">
                 <Loader2 className="w-4 h-4 text-primary animate-spin" />
-                <span className="text-sm text-muted-foreground">Formulating personalized plan...</span>
+                <span className="text-sm text-muted-foreground">
+                  Formulating personalized plan...
+                </span>
               </div>
             </motion.div>
           )}
@@ -293,7 +349,7 @@ export default function AICoachPage() {
       </div>
 
       {/* Right Column: Profile Context HUD */}
-      <div className="w-full md:w-80 h-fit md:h-full flex flex-col gap-6">
+      <div className="w-full md:w-80 h-fit md:h-full flex-col gap-6 hidden sm:flex">
         <div className="glass rounded-3xl p-6 border border-border flex flex-col gap-6">
           <div>
             <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
@@ -307,29 +363,45 @@ export default function AICoachPage() {
           <div className="border-t border-border pt-4 space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-card/50 p-3 rounded-xl border border-border/60">
-                <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Weight</p>
+                <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">
+                  Weight
+                </p>
                 <p className="text-lg font-bold text-foreground mt-0.5">
-                  {store.weight} <span className="text-xs font-normal text-muted-foreground">{store.unit === 'metric' ? 'kg' : 'lbs'}</span>
+                  {store.weight}{" "}
+                  <span className="text-xs font-normal text-muted-foreground">
+                    {store.unit === "metric" ? "kg" : "lbs"}
+                  </span>
                 </p>
               </div>
               <div className="bg-card/50 p-3 rounded-xl border border-border/60">
-                <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Height</p>
+                <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">
+                  Height
+                </p>
                 <p className="text-lg font-bold text-foreground mt-0.5">
-                  {store.height} <span className="text-xs font-normal text-muted-foreground">{store.unit === 'metric' ? 'cm' : 'in'}</span>
+                  {store.height}{" "}
+                  <span className="text-xs font-normal text-muted-foreground">
+                    {store.unit === "metric" ? "cm" : "in"}
+                  </span>
                 </p>
               </div>
             </div>
 
             <div className="bg-card/50 p-3.5 rounded-xl border border-border/60 space-y-1.5">
-              <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Gender & Age</p>
+              <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">
+                Gender & Age
+              </p>
               <div className="flex justify-between items-center text-sm font-semibold text-foreground">
-                <span>{store.gender || 'Not specified'}</span>
-                <span className="text-xs font-normal text-muted-foreground">{store.dob || 'DOB unspecified'}</span>
+                <span>{store.gender || "Not specified"}</span>
+                <span className="text-xs font-normal text-muted-foreground">
+                  {store.dob || "DOB unspecified"}
+                </span>
               </div>
             </div>
 
             <div className="bg-card/50 p-3.5 rounded-xl border border-border/60 space-y-2">
-              <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Fitness Goals</p>
+              <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">
+                Fitness Goals
+              </p>
               <div className="flex flex-wrap gap-1.5">
                 {store.goals.length > 0 ? (
                   store.goals.map((goal, idx) => (
@@ -337,25 +409,33 @@ export default function AICoachPage() {
                       key={idx}
                       className="px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-semibold capitalize"
                     >
-                      {goal.replace('_', ' ')}
+                      {goal.replace("_", " ")}
                     </span>
                   ))
                 ) : (
-                  <span className="text-xs text-muted-foreground">General wellness</span>
+                  <span className="text-xs text-muted-foreground">
+                    General wellness
+                  </span>
                 )}
               </div>
             </div>
 
             <div className="bg-card/50 p-3.5 rounded-xl border border-border/60 space-y-1.5">
-              <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Activity Level</p>
+              <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">
+                Activity Level
+              </p>
               <p className="text-sm font-semibold text-foreground capitalize">
-                {store.activityLevel ? store.activityLevel.replace('_', ' ') : 'Moderate'}
+                {store.activityLevel
+                  ? store.activityLevel.replace("_", " ")
+                  : "Moderate"}
               </p>
             </div>
 
             {store.bio && (
               <div className="bg-card/50 p-3.5 rounded-xl border border-border/60 space-y-1">
-                <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Personal Bio</p>
+                <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">
+                  Personal Bio
+                </p>
                 <p className="text-xs text-muted-foreground italic leading-relaxed">
                   "{store.bio}"
                 </p>
